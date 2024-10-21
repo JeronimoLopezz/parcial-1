@@ -1,6 +1,7 @@
 fetch('data/datos.json')
     .then(response => response.json())
     .then(data => {
+    
         console.log(data);
         const tituloPagina = document.getElementById('titulo_pagina');
         tituloPagina.innerHTML = data.titulo_pagina;
@@ -22,17 +23,20 @@ fetch('data/datos.json')
         `;
             const productos = data.productos;
             let productosHTML = '';
+
             for (let i = 0; i < productos.length; i++) {
                 productosHTML += `
                 <tr>
-                <td>${productos[i].id}</td>
+                <td>${productos[i].id}</td> 
                 <td>${productos[i].nombre}</td>
                 <td>${productos[i].categoria}</td>                
                 <td>${productos[i].descripcion}</td>
                 <td>$${productos[i].precio}</td>
-                <td><img src="https://via.placeholder.com/150" alt="Imagen 1" class="img-thumbnail"></td> /tr>
+                <td><img src="https://via.placeholder.com/150" alt="Imagen 1" class="img-thumbnail"></td> </tr>
                 `;
             } 
             const tablaproductos = document.getElementById('tabla_productos');
             tablaproductos.innerHTML = productosHTML;
         });
+
+        
